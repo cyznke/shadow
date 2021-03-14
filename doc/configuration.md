@@ -1,6 +1,6 @@
 # Config File
 
-```
+```jsonc
 {
     // Proxy Server
     // Shadowsocks
@@ -21,24 +21,24 @@
 
 
     // DNS Server
-    // tls://1.1.1.1:853
     // https://1.1.1.1:443/dns-query
     "name_server": "https://1.1.1.1:443/dns-query",
 
 
     // tun device only
+    // For macOS, `tun_name` shoulde be `utun[0-9]`
     "tun_name": "utun",
     "tun_addr": ["192.168.0.11/24"],
 
 
     // windivert only
     // maxmind geoip file
-    // proxy/bypass = iso code of country
-    // final = proxy/bypass
+    // set proxy/bypass to iso code of country, like `CN`
+    // final is to set default action for IP not specified, final can be `proxy` or `bypass`
     "geo_ip_rules": {
-        "file": "",
+        "file": "Country.mmdb",
         "proxy": [],
-        "bypass": [],
+        "bypass": ["CN"],
         "final": "",
     },
     // windivert only
